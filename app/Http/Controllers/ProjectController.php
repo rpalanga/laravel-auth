@@ -15,7 +15,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
 
-        return view("admin.index", compact("projects"));
+        return view("admin.projects.fake-index", compact("projects"));
     }
 
     /**
@@ -23,7 +23,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.create");
+        return view("admin.projects.create");
     }
 
     /**
@@ -39,7 +39,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.show' , compact('project'));
+        return view('admin.projects.show' , compact('project'));
     }
 
     /**
