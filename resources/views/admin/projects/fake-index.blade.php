@@ -9,7 +9,7 @@
       <div class="card-body ">
         <h5 class="card-title">Ciao </h5>
         <p class="card-text">Primo progetto</p>
-        <a href="{{route('admin.projects.create')}}" class="btn btn-primary">Visualizza</a>
+        <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary">Visualizza</a>
       </div>
     </div>
 
