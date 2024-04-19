@@ -22,7 +22,31 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name"=> "required|max:200",
+            "image"=> "required",
+            "description"=> "required|max:5000",
+            "link_repo"=> "required|max:1000",
+            "tech"=> "required|max:2000",
+            "date_release"=> "required|date|max:10",
+            
         ];
+    }
+
+    public function messages(): array {
+        return [
+            'required'=> 'Hai dimenticato di inserire :attribute',
+            'max'=> 'Il valore inserito in :attribute ha superato il valore :max di caratteri',
+        ];
+    }
+
+    public function attributes(): array{
+        return [
+            'name'=> 'Nome Progetto',
+            'image'=> 'Immagine',
+            'description'=>'Descrizione',
+            'link_repo'=> 'Link del Documento',
+            'tech'=> 'Linguaggi o Tecnologie',
+            'date_release'=> 'Data di Pubblicazione',
+        ] ;
     }
 }

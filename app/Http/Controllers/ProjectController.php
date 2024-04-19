@@ -31,7 +31,13 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $request->validated();
+
+        $newProject = new Project();
+        $newProject->fill($request->all());
+
+        $newProject->save();    
+        return redirect()->route('admin.projects.index');
     }
 
     /**
@@ -48,7 +54,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -56,7 +62,19 @@ class ProjectController extends Controller
      */
     public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        $request->validated();
+
+        // $project->name = $request->name;
+        // $project->image = $request->image;
+        // $project->description = $request->description;
+        // $project->link_repo = $request->link_repo;
+        // $project->tech = $request->tech;
+        // $project->date_release = $request->date_release;
+        $project->fill($request->all());
+
+        $project->save();
+        return redirect()->route('admin.projects.show', $project->id);
+
     }
 
     /**
@@ -64,6 +82,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete(); 
+        return redirect()->route('admin.projects.index');
     }
 }

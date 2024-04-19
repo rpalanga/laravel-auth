@@ -2,8 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h1 class=" display-2 ">ciao a tutti</h1>
+    <h1 class=" display-4 fw-bolder text-center my-3 text-danger ">Sezione Visualizzazione dei Miei Progetti</h1>
 
+    @if($projects->count()== 0)
+      <h1>Nessun progetto da visualizzare</h1>
+    
+    @endif
     @foreach($projects as $project)
 
     <div class="card col-2 p-0" style="width: 18rem;">
@@ -16,5 +20,14 @@
     </div>
     @endforeach
 
+
+
 </div>
+<div class="container">
+    <div class="row justify-content-center">
+      <a href="{{route('admin.projects.create')}}" class="btn btn-primary my-3 col-3"> Inserisci un Nuovo Progetto</a>
+
+    </div>
+  </div>
+
 @endsection

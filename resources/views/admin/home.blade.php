@@ -6,7 +6,7 @@
     ciao
  </h1>
 
- <a href="{{route('admin.projects.fake-index')}}"></a>
+ <a href="{{route('admin.projects.index')}}"> Visualizza Progetti</a>
 
  
 </div>
