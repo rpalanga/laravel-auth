@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="container row flex-wrap gap-2  justify-content-center mx-auto my-3">
     <h1 class=" display-4 fw-bolder text-center my-3 text-danger ">Sezione Visualizzazione dei Miei Progetti</h1>
 
     @if($projects->count()== 0)
@@ -11,10 +11,12 @@
     @foreach($projects as $project)
 
     <div class="card col-2 p-0" style="width: 18rem;">
-      <img src="" class="card-img-top object-fit-cover" style="height: 300px; object-position: top;">
+      <img src="{{$project->image}}" class="card-img-top object-fit-cover" style="height: 300px; object-position: top;">
       <div class="card-body ">
-        <h5 class="card-title"></h5>
-        <p class="card-text">Primo progetto</p>
+        <h5 class="card-title">{{$project->name}}</h5>
+        <p class="card-text">{{$project->tech}}</p>
+        <p class="card-text">{{$project->date_release}}</p>
+
         <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary">Visualizza</a>
       </div>
     </div>

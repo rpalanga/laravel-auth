@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <h1 class=" display-2 ">Ben venuto nella Show dei miei progetti</h1>
+<div class="container d-flex flex-column align-items-center">
+    <h1 class=" display-2 ">Visualizza il Progetto</h1>
 
     <div class="card col-12 my-4" style="width: 500px;">
       <img src="{{$project->image}}" class="card-img-top w-100" alt="...">
