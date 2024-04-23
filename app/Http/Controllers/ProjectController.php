@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -16,6 +17,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
 
+
         return view("admin.projects.fake-index", compact("projects"));
     }
 
@@ -24,7 +26,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $types = Type::all();
+        return view("admin.projects.create" , compact("types"));
     }
 
     /**
@@ -62,7 +65,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project','types'));
     }
 
     /**
@@ -80,13 +84,6 @@ class ProjectController extends Controller
 
         }
         
-
-        // $project->name = $request->name;
-        // $project->image = $request->image;
-        // $project->description = $request->description;
-        // $project->link_repo = $request->link_repo;
-        // $project->tech = $request->tech;
-        // $project->date_release = $request->date_release;
         $project->fill($request->all());
 
         $project->save();

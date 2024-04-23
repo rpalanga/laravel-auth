@@ -12,6 +12,9 @@
         <p class="card-text">{{$project->link_repo}}</p>
         <p class="card-text">{{$project->tech}}</p>
         <p class="card-text">{{$project->date_release}}</p>
+        <p class="card-text">{{$project->type?->title}}</p>
+
+        
         
         
         
